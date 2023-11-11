@@ -100,4 +100,8 @@ RSpec.configure do |config|
     # Clean up the MongoDB database before each test
     Mongoid::Config.purge!
   end
+
+  config.before(:each, type: :request) do
+    host! 'localhost:5000'
+  end
 end
