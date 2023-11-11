@@ -5,4 +5,5 @@ class Calculation
   field :result, type: Float, default: 0
   field :count, type: Integer, default: 1
   index({ operation: 1 }, { unique: true })
+  validates :operation, presence: true, uniqueness: true
 end

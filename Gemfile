@@ -41,3 +41,8 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+  gem 'rspec-rails'
+  gem 'mongoid-rspec'
+  gem 'factory_bot_rails'
+end
