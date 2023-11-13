@@ -7,6 +7,7 @@ ruby "3.0.6"
 gem "rails", "~> 7.0.8"
 gem 'mongoid', '~> 7.0'
 gem 'active_model_serializers'
+gem 'rack-cors', :require => 'rack/cors'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

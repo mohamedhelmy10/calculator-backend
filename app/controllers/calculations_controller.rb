@@ -13,13 +13,18 @@ class CalculationsController < ApplicationController
             end
             render json: @calculation, status: :created
         rescue StandardError => e
-            render json: { error:  e.message }, status: :bad_request
+            render json: { error:  {message: e.message} }, status: :bad_request
         end
     end
 
     private
 
     def get_calculation_service
-        @calculation_service = CalculationService.new(params[:operand1], params[:operand2], params[:operator])
+        parameters = calculation_params
+        @calculation_service = CalculationService.new(parameters[:operand1], parameters[:operand2], parameters[:operator])
+    end
+
+    def calculation_params
+        params.require(:calculation).permit(:operand1, :operand2, :operator)
     end
 end
